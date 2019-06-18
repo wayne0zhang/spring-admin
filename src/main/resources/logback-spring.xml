@@ -1,97 +1,97 @@
 <configuration scan="true" scanPeriod="60 seconds">
 
-    <jmxConfigurator/>
+<!--    <jmxConfigurator/>-->
 
-    <springProfile name="dev">
-        <property name="logDir" value="./logs"/>
-    </springProfile>
+<!--    <springProfile name="dev">-->
+<!--        <property name="logDir" value="./logs"/>-->
+<!--    </springProfile>-->
 
-    <springProfile name="test">
-        <property name="logDir" value="${MATRIX_APPLOGS_DIR}"/>
-    </springProfile>
+<!--    <springProfile name="test">-->
+<!--        <property name="logDir" value="${MATRIX_APPLOGS_DIR}"/>-->
+<!--    </springProfile>-->
 
-    <springProfile name="off">
-        <property name="logDir" value="${MATRIX_APPLOGS_DIR}"/>
-    </springProfile>
-    <springProfile name="offline">
-        <property name="logDir" value="${MATRIX_APPLOGS_DIR}"/>
-    </springProfile>
+<!--    <springProfile name="off">-->
+<!--        <property name="logDir" value="${MATRIX_APPLOGS_DIR}"/>-->
+<!--    </springProfile>-->
+<!--    <springProfile name="offline">-->
+<!--        <property name="logDir" value="${MATRIX_APPLOGS_DIR}"/>-->
+<!--    </springProfile>-->
 
-    <springProfile name="integration">
-        <property name="logDir" value="/home/log/cp-attence-api-getway"/>
-    </springProfile>
+<!--    <springProfile name="integration">-->
+<!--        <property name="logDir" value="/home/log/cp-attence-api-getway"/>-->
+<!--    </springProfile>-->
 
-    <springProfile name="prod">
-        <property name="logDir" value="${MATRIX_APPLOGS_DIR}"/>
-    </springProfile>
+<!--    <springProfile name="prod">-->
+<!--        <property name="logDir" value="${MATRIX_APPLOGS_DIR}"/>-->
+<!--    </springProfile>-->
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <!-- encoder 默认配置为PatternLayoutEncoder -->
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36}[:%line] - %msg%n
-            </pattern>
-        </encoder>
-    </appender>
+<!--    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        &lt;!&ndash; encoder 默认配置为PatternLayoutEncoder &ndash;&gt;-->
+<!--        <encoder>-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36}[:%line] - %msg%n-->
+<!--            </pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
 
-    <appender name="INFO"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logDir}/info.log</file>
-        <!-- encoder 默认配置为PatternLayoutEncoder -->
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36}[:%line] - %msg%n
-            </pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logDir}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>INFO</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>NEUTRAL</onMismatch>
-        </filter>
-    </appender>
+<!--    <appender name="INFO"-->
+<!--              class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${logDir}/info.log</file>-->
+<!--        &lt;!&ndash; encoder 默认配置为PatternLayoutEncoder &ndash;&gt;-->
+<!--        <encoder>-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36}[:%line] - %msg%n-->
+<!--            </pattern>-->
+<!--        </encoder>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${logDir}/info.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>INFO</level>-->
+<!--            <onMatch>ACCEPT</onMatch>-->
+<!--            <onMismatch>NEUTRAL</onMismatch>-->
+<!--        </filter>-->
+<!--    </appender>-->
 
-    <appender name="ERROR"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logDir}/error.log</file>
-        <!-- encoder 默认配置为PatternLayoutEncoder -->
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36}[:%line] - %msg%n
-            </pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logDir}/error.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
-
-
-    <!-- Enable FILE and STDOUT appenders for all log messages. By default,
-        only log at level INFO and above. -->
-    <root level="INFO">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="INFO"/>
-        <appender-ref ref="ERROR"/>
-    </root>
-
-    <logger name="org.springframework" level="DEBUG"/>
-    <logger name="org.apache" level="DEBUG"/>
-    <logger name="com.netflix" level="DEBUG"/>
-    <logger name="javax.activation" level="DEBUG"/>
+<!--    <appender name="ERROR"-->
+<!--              class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${logDir}/error.log</file>-->
+<!--        &lt;!&ndash; encoder 默认配置为PatternLayoutEncoder &ndash;&gt;-->
+<!--        <encoder>-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36}[:%line] - %msg%n-->
+<!--            </pattern>-->
+<!--        </encoder>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${logDir}/error.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>ERROR</level>-->
+<!--            <onMatch>ACCEPT</onMatch>-->
+<!--            <onMismatch>DENY</onMismatch>-->
+<!--        </filter>-->
+<!--    </appender>-->
 
 
-    <springProfile name="integration">
-        <root level="INFO" >
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="INFO"/>
-            <appender-ref ref="ERROR"/>
-        </root>
-    </springProfile>
+<!--    &lt;!&ndash; Enable FILE and STDOUT appenders for all log messages. By default,-->
+<!--        only log at level INFO and above. &ndash;&gt;-->
+<!--    <root level="INFO">-->
+<!--        <appender-ref ref="STDOUT"/>-->
+<!--        <appender-ref ref="INFO"/>-->
+<!--        <appender-ref ref="ERROR"/>-->
+<!--    </root>-->
+
+<!--    <logger name="org.springframework" level="DEBUG"/>-->
+<!--    <logger name="org.apache" level="DEBUG"/>-->
+<!--    <logger name="com.netflix" level="DEBUG"/>-->
+<!--    <logger name="javax.activation" level="DEBUG"/>-->
+
+
+<!--    <springProfile name="integration">-->
+<!--        <root level="INFO" >-->
+<!--            <appender-ref ref="STDOUT" />-->
+<!--            <appender-ref ref="INFO"/>-->
+<!--            <appender-ref ref="ERROR"/>-->
+<!--        </root>-->
+<!--    </springProfile>-->
 
 </configuration>  
